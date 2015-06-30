@@ -11,12 +11,12 @@
     <div class="media">
       <div class="media-left">
         <a href="#">
-          <img class="media-object" src="http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png"/>
+          <img class="media-object" src="<%= @question.gravatar %>"/>
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"> user@example.com</h4>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <h4 class="media-heading"> <%= @question.email %></h4>
+        <%= @question.body %>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div class="col-sm-8 col-sm-offset-2">
 
       <div>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new_answer_modal"> Submit new answer </button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new_answer_form"> Submit new answer </button>
       </div>
       <%= render 'home/new_answer_form' %>
 
