@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   <style type="text/css">
   .container-fluid {
     background-color: black;
@@ -16,23 +18,8 @@
   </style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="home">History of Universe  </a>
-    </div>
-    <div class="pull-right">
-      <button type="submit" class="btn btn-success">Ask Question</button>
-    </div>
-        
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<div class="container">
+  <%= render 'home/navbar' %>
   <%= yield %>
-</div>
-
-
+  <%= render 'home/new_question_form' %>
 </body>
 </html>
