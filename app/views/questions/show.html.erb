@@ -4,6 +4,16 @@
       width: 100px;
       height: 100px;
     }
+    .date {
+      float: right;
+      font-size: 12px;
+    }
+    .float-right {
+      float: right;;
+    }
+    .padding-bottom {
+      padding-bottom: 15px;
+    }
   </style>
 </head>
 <div class="container">
@@ -21,47 +31,32 @@
     </div>
   </div>
 
+  <%= render 'home/new_answer_form' %>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-
-      <div>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#new_answer_form"> Submit new answer </button>
+      <% @answers.each do |answer| %>
+        <div class="media well lead">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object user-image" src="<%= answer.gravatar %>"/>
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"> <%= answer.email %> </h4>
+            <%= answer.body %>
+          </div>
+          <p class="date"><%= time_ago_in_words answer.created_at %> ago </p>
+        </div>
+      <% end %>
       </div>
-      <%= render 'home/new_answer_form' %>
-
-      <div class="media">
-        <div class="media-left">
-          <a href="#">
-            <img class="media-object user-image" src="http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png"/>
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"> user@example.com</h4>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
+      <% if @answers.empty? %>
+      <div class="alert alert-info col-sm-8 col-sm-offset-2"> No answers yet, be the first to answer! </div>
       </div>
-      <div class="media">
-        <div class="media-left">
-          <a href="#">
-            <img class="media-object user-image" src="http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png"/>
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"> user@example.com</h4>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-      </div>
-      <div class="media">
-        <div class="media-left">
-          <a href="#">
-            <img class="media-object user-image" src="http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png"/>
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"> user@example.com</h4>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-      </div>
+      <% end %>
+      <div class="col-sm-8 col-sm-offset-2 padding-bottom">
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#new_answer_form"> Submit new answer </button>
       </div>
   </div>
+
+
 </div>
