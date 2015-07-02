@@ -1,3 +1,15 @@
+<head>
+  <style>
+    .session {
+        float: right;
+        color: #fff;
+        top: 6px;
+        position: relative;
+        right: 15px;
+        font-size: 18pt;
+    }
+  </style>
+</head>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -5,7 +17,9 @@
       <a class="navbar-brand" href="/home" style="color: white;">History of Universe  </a>
     </div>
     <div class="pull-right">
-      <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal">Ask Question</button>
+    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal">Ask Question</button>
     </div>
+    <div class="session"> <%= current_user_email %> </div>
+
   </div><!-- /.container-fluid -->
 </nav>
