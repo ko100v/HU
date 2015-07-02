@@ -1,2 +1,2 @@
-class ModelsController < ApplicationController
-end
+# class ModelsController < ApplicationController
+# end

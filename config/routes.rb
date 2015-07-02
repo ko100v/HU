@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :answers
 
-  resources :models
+  # resources :models
 
   resources :questions
+  resources :models
 
   root 'home#index'
 
